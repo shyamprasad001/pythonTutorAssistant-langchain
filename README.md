@@ -1,98 +1,73 @@
-Python Tutor Assistant
+# Python Tutor Assistant
 
 A simple Python Tutor Assistant built with Python and LangChain. It uses the Groq LLaMA 3.3 70B model to explain Python concepts with simple code examples.
 
-Features
-Uses LangChain for conversation management.
-Uses Groq's llama-3.3-70b-versatile model.
-Loads the Groq API key securely from a .env file.
-Uses system and human messages to guide the model.
-Provides beginner-friendly Python explanations.
-Technologies Used
-Python
-LangChain
-Groq
-LLaMA 3.3 70B
-python-dotenv
-Installation
+## Features
 
-Clone the repository:
+- Uses LangChain for conversation management
+- Uses Groq's `llama-3.3-70b-versatile` model
+- Loads the Groq API key securely from a `.env` file
+- Uses `SystemMessage` and `HumanMessage`
+- Provides beginner-friendly Python explanations
 
-git clone <your-repository-url>
-cd PythonTutorAssistant
+## Technologies Used
 
+- Python
+- LangChain
+- Groq
+- LLaMA 3.3 70B
+- python-dotenv
+
+## Installation
 
 Install the required packages:
 
-pip install langchain langchain-groq python-dotenv
+    pip install langchain langchain-groq python-dotenv
 
-Environment Variables
+## Environment Variables
 
-Create a .env file in the project directory:
+Create a `.env` file in the project directory:
 
-GROQ_API_KEY="your_groq_api_key"
+    GROQ_API_KEY="your_groq_api_key"
 
+Replace `your_groq_api_key` with your actual Groq API key.
 
-Replace your_groq_api_key with your actual Groq API key.
+## Usage
 
-Do not commit your .env file to Git. Add it to .gitignore:
+Run the application:
 
-.env
-__pycache__/
+    python app.py
 
-Usage
+The assistant will answer:
 
-Run the application with:
+    Explain what a dictionary is in Python with an example.
 
-python app.py
+## How It Works
 
+1. Loads the Groq API key from the `.env` file.
+2. Creates a `SystemMessage` defining the assistant as a Python tutor.
+3. Creates a `HumanMessage` containing the Python question.
+4. Initializes the Groq LLaMA model using LangChain.
+5. Invokes the model using `invoke()`.
+6. Prints the model's response using `response.content`.
 
-The assistant will explain:
+## Project Structure
 
-Explain what a dictionary is in Python with an example.
+    PythonTutorAssistant/
+    ├── app.py
+    ├── .env
+    ├── .gitignore
+    └── README.md
 
-How It Works
+## Security
 
-The application:
+Never commit your `.env` file or expose your Groq API key.
 
-Loads the Groq API key from the .env file.
-Creates a system message defining the assistant as a Python tutor.
-Creates a human message containing the Python question.
-Initializes the Groq LLaMA model through LangChain.
-Sends the messages to the model using invoke().
-Prints the model's response.
-Example
+Add the following to `.gitignore`:
 
-Question:
+    .env
+    __pycache__/
 
-Explain what a dictionary is in Python with an example.
-
-
-Response:
-
-A dictionary in Python is a collection of key-value pairs.
-
-Example:
-
-student = {
-    "name": "John",
-    "age": 20,
-    "course": "Python"
-}
-
-print(student["name"])
-
-Project Structure
-PythonTutorAssistant/
-├── app.py
-├── .env
-├── .gitignore
-└── README.md
-
-Security
-
-Keep your API key private. Never upload .env or expose your GROQ_API_KEY in your source code or Git repository.
-
-License
+## License
 
 This project is for educational purposes.
